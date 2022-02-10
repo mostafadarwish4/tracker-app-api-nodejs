@@ -10,7 +10,7 @@ const bodyParser=require('body-parser')
 const requireAuth = require('./middlewares/requireAuth')
 
 app.use(express.json())
-
+const port=process.env.port || 5000
 const mongoUri='mongodb+srv://admin:passwordpassword@cluster0.6ol9d.mongodb.net/test?retryWrites=true&w=majority'
 //mongodb+srv://admin:passwordpasswor@cluster0.6ol9d.mongodb.net/test?retryWrites=true&w=majority
   mongoose.connect(mongoUri,{ 
@@ -31,6 +31,6 @@ app.get('/',requireAuth,(req,res)=>{
 app.use(authRoutes)
 app.use(trackRoutes)
 
-app.listen(5000,()=>{
+app.listen(port,()=>{
     console.log('server started at port 5000')
 })
