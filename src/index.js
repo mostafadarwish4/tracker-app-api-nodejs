@@ -28,6 +28,9 @@ mongoose.connection.on('error',(err)=>{
 app.get('/',requireAuth,(req,res)=>{
     res.send(` your email is ${req.user.email}`)
 })
+app.get('/',(req,res)=>{
+    res.send('Welcome to Tracks API')
+})
 app.use(authRoutes)
 app.use(trackRoutes)
 
